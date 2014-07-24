@@ -3,12 +3,20 @@ class Style < ActiveRecord::Base
   self.inheritance_column = :_type_disabled
   has_many :items
 
+  def dress
+    "Dress"
+  end
+
+  def pants
+    "Pants"
+  end
+
   def dress?
-    type == "Dress"
+    type == dress
   end
 
   def pants?
-    type == "Pants"
+    type == pants
   end
 
 end

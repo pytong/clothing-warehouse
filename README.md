@@ -50,3 +50,6 @@ We'd like you to make some improvements, specifically:
 # Some other guidance
 * DO NOT HESITATE TO REFACTOR where appropriate
 * If you need to make an assumption about a vague requirement, feel free, just state what it is.
+
+# Assumptions
+* The operations team rarely needs to change the minimum price of clearance items
