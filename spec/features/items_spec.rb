@@ -27,8 +27,8 @@ describe "show items in clearance_batch" do
           expect(page).to have_content(@item2.color) 
           expect(page).to have_content(@item1.status)
           expect(page).to have_content(@item2.status)
-          expect(page).to have_content(@item1.sold_at)
-          expect(page).to have_content(@item2.sold_at)
+          expect(page).to have_content(@item1.price_sold)
+          expect(page).to have_content(@item2.price_sold)
           expect(page).to have_content(@item1.style.type)
           expect(page).to have_content(@item2.style.type)
         end

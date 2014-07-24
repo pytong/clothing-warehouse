@@ -59,7 +59,7 @@ describe Item do
           end
 
           it "should set the price sold to 5" do
-            expect(item.price_sold).to eq(Item::MIN_DRESS_AND_PANTS_PRICE)
+            expect(item.price_sold).to eq(BigDecimal.new("5"))
           end
         end
       end
