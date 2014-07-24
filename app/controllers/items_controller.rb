@@ -5,4 +5,9 @@ class ItemsController < ApplicationController
     @items = @clearance_batch.items
   end
 
+  def search
+    status = params[:status]
+    @items = Item.find_by_status(status)
+  end
+
 end
