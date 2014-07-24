@@ -12,6 +12,10 @@ class Item < ActiveRecord::Base
   def clearance!
     update_attributes!(status: 'clearanced', price_sold: clearance_price)
   end
+
+  def self.statuses
+    Item.select(:status).uniq.map{|s| s.status}
+  end
  
   private
 

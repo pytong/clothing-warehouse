@@ -1,6 +1,16 @@
 require 'rails_helper'
 
 describe Item do
+
+  describe "#statuses" do
+    let!(:sellable_item) { FactoryGirl.create(:item, status: "sellable") }
+    let!(:clearanced_item) { FactoryGirl.create(:item, status: "clearanced") }
+
+    it "should return all statuses" do
+      expect(Item.statuses).to eq([sellable_item.status, clearanced_item.status])
+    end
+  end
+
   describe "#perform_clearance!" do
 
     context "item is neither a dress nor pants" do
