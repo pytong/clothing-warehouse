@@ -1,0 +1,26 @@
+<h2>Items in Clearance Batch <%= @clearance_batch.id %></h2>
+
+<table class="table table-striped items">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Size</th>
+      <th>Color</th>
+      <th>Status</th>
+      <th>Sold At</th>
+      <th>Style</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%- @items.each do |item| -%>
+      <tr>
+        <td>Item <%= item.id %></td>
+        <td><%= item.size %></td>
+        <td><%= item.color %></td>
+        <td><%= item.status %></td>
+        <td><%= item.sold_at %></td>
+        <td><%= item.style.type %></td>
+      </tr>
+    <%- end -%>
+  </tbody>
+</table>
