@@ -9,7 +9,7 @@ task :package do
   changed_files = `git status --porcelain`.split("\n")
   abort "You have local changes:\n#{changed_files.join("\n")}" unless changed_files.empty?
   chdir("..") do
-    command = "zip -x take-home-challenge-next-level/tmp/cache/\\* -x take-home-challenge-next-level/.git/\\* -x take-home-challenge-next-level/RUBRIC.md -r take-home-challenge.zip take-home-challenge-next-level/*"
+    command = "zip -x clothing-warehouse-next-level/tmp/cache/\\* -x clothing-warehouse-next-level/.git/\\* -x clothing-warehouse-next-level/RUBRIC.md -r tclothing-warehouse.zip clothing-warehouse-next-level/*"
     sh command do |ok,res|
       raise "Problem running #{command}" unless ok
     end
