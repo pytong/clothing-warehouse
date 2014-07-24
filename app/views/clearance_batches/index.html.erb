@@ -14,6 +14,7 @@
       <th></th>
       <th>Date clearanced</th>
       <th>Number of items clearanced</th>
+      <th>Items</th>
     </tr>
   </thead>
   <tbody>
@@ -22,6 +23,7 @@
         <td>Clearance Batch <%= clearance_batch.id %></td>
         <td><%= l(clearance_batch.created_at, format: :short) %></td>
         <td><%= clearance_batch.items.count %></td>
+        <td><%= link_to 'Batch Items', clearance_batch_items_path(clearance_batch) %></td>
       </tr>
     <%- end -%>
   </tbody>
