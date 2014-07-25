@@ -4,6 +4,24 @@ describe "add new monthly clearance_batch" do
 
   describe "clearance_batches index", type: :feature do
 
+    describe "see items by statuses" do
+
+      let(:clearance_batch) { FactoryGirl.create(:clearance_batch) }
+
+      before do
+        @sellable_item = FactoryGirl.create(:item, status: "sellable", clearance_batch: clearance_batch)
+        @clearanced_item = FactoryGirl.create(:item, status: "clearanced", clearance_batch: clearance_batch)       
+      end
+
+      it "displays a list items for each status" do
+        visit "/"
+        within('table.statuses') do
+          expect(page).to have_content(@sellable_item.status)
+          expect(page).to have_content(@clearanced_item.status)
+        end
+      end
+    end
+
     describe "see previous clearance batches" do
 
       let!(:clearance_batch_1) { FactoryGirl.create(:clearance_batch) }

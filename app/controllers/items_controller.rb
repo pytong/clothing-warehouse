@@ -1,13 +1,22 @@
 class ItemsController < ApplicationController
 
-  def index
-    @clearance_batch  = ClearanceBatch.find(params[:clearance_batch_id])
-    @items = @clearance_batch.items
+  def search
+    @search_params = search_params
+    @items = Item.where(@search_params)
   end
 
-  def search
+  private
+
+  def search_params
+    search_params = {}
+
     status = params[:status]
-    @items = Item.find_by_status(status)
+    clearance_batch_id = params[:clearance_batch_id]
+
+    search_params[:status] = status if status
+    search_params[:clearance_batch_id] = clearance_batch_id if clearance_batch_id 
+
+    search_params
   end
 
 end
